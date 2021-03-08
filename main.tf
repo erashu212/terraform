@@ -7,11 +7,18 @@ terraform {
     null     = "~> 3.0.0"
     archive  = "~> 2.0.0"
   }
+  backend "remote" {
+    hostname = "app.terraform.io"
+  }
 }
 
 provider "aws" {
   region = "us-east-1"
   alias  = "useast1"
+}
+
+provider "aws" {
+  region = var.region
 }
 
 data "aws_region" "active" {}
