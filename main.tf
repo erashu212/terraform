@@ -9,6 +9,9 @@ terraform {
   }
   backend "remote" {
     hostname = "app.terraform.io"
+    workspaces {
+      name = "connect-web-dev"
+    }
   }
 }
 
